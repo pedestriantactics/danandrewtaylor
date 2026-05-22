@@ -1,0 +1,41 @@
+<!--
+    PT Notes:
+
+    How .title works in Jekyll
+        If a title isn't specified for an HTML, nothing is generated. 
+        If it isn't specified for a markdown file, 
+        a title is automatically generated from the file name and 
+        capitalized properly with dashes turned to spaces.
+-->
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!--SITE META-->
+
+	<!--If the current page doesn't have a title, the file name is used-->
+	<title>I'm Dan Taylor - {% if page.title %}{{ page.title }}{% else %}{{ page.name }}{% endif %}</title>
+	<meta title=”description”
+		content="I'm Dan Taylor. I'm a multimedia designer. This is a collection of my recent design work. Follow me on Instagram @im_dan_taylor.">
+
+	<!--/SITE META-->
+
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/style.css">
+
+	{% if jekyll.environment == "production" %}
+	<!-- tracking -->
+	<script defer src="https://umami.catalystsoftworks.com/script.js"
+		data-website-id="3e20ed2c-7762-4d69-a29d-df3d36582aca"></script>
+	{% endif %}
+</head>
+
+<body>
+	{{ content }}
+</body>
+
+</html>

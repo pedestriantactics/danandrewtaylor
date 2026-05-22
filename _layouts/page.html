@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<div id="header-container">
+	<p>
+		<a class="hidden-link" href="/">Dan</a> / <a class="hidden-link" href="work">Work</a> / {{
+		page.title }}
+	</p>
+</div>
+<div id="footer-container">
+	<p>
+		<a class="hidden-link" href="contact">Contact me</a>
+	</p>
+</div>
+<div id="post">
+	<div id="page-container">
+		<div id="captions">
+			<p class="caption">{{ page.date | date: '%Y-%-m-%-d' }}<span class="spacer"></span>{{ page.title }}<span
+					class="spacer"></span>{{ page.caption }}</p>
+		</div>
+		<div id="content">
+			{{ content }}
+		</div>
+	</div>
+</div>
+
+<style>
+	#page-container {
+		/* center the page horizontally and vertically */
+		max-width: var(--max-paragraph-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#captions {
+		display: flex;
+		flex-direction: row;
+	}
+
+	#title,
+	hr {
+		margin-bottom: 2rem;
+	}
+
+	#post {
+		margin: 2rem;
+		margin-top: 6rem;
+	}
+
+	#content img,
+	#content video {
+		margin-bottom: 8px;
+		width: 100%;
+	}
+
+	/* #content p {
+		margin-bottom: 1rem;
+	} */
+</style>

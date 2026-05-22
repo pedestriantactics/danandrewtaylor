@@ -1,0 +1,158 @@
+@font-face {
+	font-family: "Hyperwalk VF";
+	src: url("../fonts/HyperwalkVF.woff2") format("woff2"),
+		url("../fonts/HyperwalkVF.ttf") format("ttf"),
+		url("../fonts/HyperwalkVF.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Hyperwalk Mono VF";
+	src: url("../fonts/HyperwalkMonoVF.woff2") format("woff2"),
+		url("../fonts/HyperwalkMonoVF.ttf") format("ttf"),
+		url("../fonts/HyperwalkMonoVF.woff") format("woff");
+}
+
+/*text*/
+
+:root {
+	--color-foreground: black;
+	--color-background: white;
+	--color-accent: #c7c7c7;
+	/* spacing between horizontal rule elements and around the site */
+	--outer-margin: 3rem;
+	--spacer: 1.5em;
+	/* includes max width of the page itself */
+	--max-paragraph-width: 42rem;
+	background-color: var(--color-background);
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 14pt;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+}
+
+.spacer {
+	margin-left: var(--spacer);
+}
+
+/* make videos off-black or off-white by lightening them slightly */
+/* this can be added to a post by adding "contrast: true" */
+.contrast {
+	filter: contrast(0.77);
+}
+
+p,
+a,
+h1,
+h2,
+h3 {
+	line-height: 1.4em;
+	margin-bottom: .7rem;
+	color: var(--color-foreground);
+}
+
+.caption {
+	line-height: 1.4em;
+	font-size: 9pt;
+	font-weight: 400;
+	letter-spacing: .05em;
+}
+
+/* underlined links */
+
+/* a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+	text-decoration: underline;
+	text-underline-offset: .2em;
+	text-decoration-thickness: 1px;
+} */
+
+/* highlighted links */
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+	text-decoration: none;
+	color: var(--color-background);
+	background-color: var(--color-foreground);
+	padding-left: .2em;
+	padding-right: .2em;
+	padding-top: .05em;
+	padding-bottom: .05em;
+	/* prevent punctuation from being right after */
+	margin-left: .1em;
+	margin-right: .1em;
+}
+
+.hidden-link,
+.hidden-link:active,
+.hidden-link:hover,
+.hidden-link:focus,
+.hidden-link:visited {
+	color: var(--color-foreground);
+	background-color: transparent;
+	text-decoration: none;
+	/* undo everything else being done to links */
+	padding: 0;
+	margin: 0;
+}
+
+hr {
+	border: none;
+	margin-bottom: 2rem;
+}
+
+.arrow-left, .arrow-right {
+	font-family: "Hyperwalk VF", sans-serif;
+	/* font-size: 14pt; */
+	font-weight: 60;
+	line-height: 1rem;
+}
+
+.arrow-left::before {
+	content: "←";
+}
+
+.arrow-right::before {
+	content: "→";
+}
+
+#header-container {
+	position: fixed;
+	top: .5em;
+	left: .5em;
+}
+
+#footer-container {
+	position: fixed;
+	bottom: .5em;
+	right: .5em;
+}
+
+#header-container,
+#footer-container {
+	mix-blend-mode: difference;
+	z-index: 1;
+}
+
+/* lock the color of the header and footer because of the blend mode */
+#header-container *, #footer-container * {
+	color: white;
+}
+
+#footer-container a,
+#footer-container p {
+	margin-bottom: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-foreground: white;
+		--color-background: black;
+		--color-accent: #c7c7c7;
+	}
+}
